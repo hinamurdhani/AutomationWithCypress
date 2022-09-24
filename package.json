@@ -1,0 +1,34 @@
+{
+  "name": "assessment",
+  "version": "1.0.0",
+  "description": "this is api automation assessment",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "rimraf -r ./cypress/report/*",
+    "test": "npm run cypress-test || npm run posttest",
+    "test1": "cypress open",
+    "cypress-test": "cypress run --browser chrome --headed",
+    "posttest": "npm run marge-reports && npm run generate-htmlreport",
+    "marge-reports": "mochawesome-merge ./cypress/report/*.json > ./report1.json",
+    "generate-htmlreport": "marge report1.json --reportDir cypress/report"
+  },
+  "author": "arslan",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.4.0",
+    "cypress-cucumber-preprocessor": "^4.2.0",
+    "cypress-highlight": "^1.2.0",
+    "cypress-wait-until": "^1.7.2",
+    "cypress-xpath": "^2.0.1"
+  },
+  "dependencies": {
+    "mocha": "^9.1.1",
+    "mochawesome": "^6.3.1",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^5.2.0",
+    "rimraf": "^3.0.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+}

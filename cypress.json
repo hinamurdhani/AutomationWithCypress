@@ -1,0 +1,17 @@
+{
+    "baseUrl": "https://pod2.lms.getvymo.com/#/login",
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "charts" : true,
+	    "overwrite" : false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "reportDir": "cypress/report"
+    },
+    "ignoreTestFiles": "**/*.js",
+    "testFiles": "**/*.{feature,features}",
+    "watchForFileChanges": true
+    
+}
